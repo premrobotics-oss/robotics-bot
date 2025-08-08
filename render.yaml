@@ -1,8 +1,11 @@
 services:
   - type: web
-    name: robotics-bot
+    name: robotics-telegram-bot
     env: python
-    plan: free
-    runtime: python-3.10.13
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: GOOGLE_CREDENTIALS
+        sync: false
